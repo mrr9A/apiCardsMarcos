@@ -1,0 +1,15 @@
+ <div class="cards-container">
+  <div class="card" *ngFor="let kid of kids | slice:0:visiblePokemons">
+    <div class="card-header">
+      <h3>{{ kid.name | titlecase }}</h3>  <!-- Muestra el nombre del Pokémon -->
+    </div>
+    <div class="card-body">
+      <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + kid.id + '.png'" alt="{{ kid.name }}" />
+    </div>
+  </div>
+</div>
+
+<!-- Botón "Ver más" para cargar más Pokémon -->
+<div class="load-more-container" *ngIf="visiblePokemons < kids.length">
+  <button (click)="showMore()">Ver más</button>
+</div>
